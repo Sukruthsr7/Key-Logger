@@ -66,6 +66,7 @@ Take periodic screenshots and audio recordings
 Send reports via email at the specified interval
 
 Security and Legal Considerations
+
 ⚠️ Important Notice:
 
 This software is for educational and legitimate monitoring purposes only
