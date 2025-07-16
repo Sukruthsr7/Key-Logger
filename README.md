@@ -1,90 +1,75 @@
+# 🛡️ KeyLogger Surveillance Tool (Educational Use Only)
 
-Keylogger Project
-Python
-License
+> ⚠️ **DISCLAIMER:**  
+> This software is intended **strictly for ethical, educational, or authorized testing purposes** only. Unauthorized deployment or use of keylogging software may be **illegal** in your country and can result in **criminal charges**.  
+>  
+> You are solely responsible for how you use this tool. Always obtain **explicit consent** before running on any device that is not your own.
 
-A comprehensive keylogger application written in Python that captures keyboard inputs, mouse activities, system information, takes screenshots, and records microphone input, sending the collected data to a specified email address at regular intervals.
+---
 
-Features
-Keystroke Logging: Captures all keyboard inputs including special keys
+## 📌 Project Overview
 
-Mouse Activity Tracking: Records mouse movements, clicks, and scrolls
+The **KeyLogger Surveillance Tool** is a Python-based script that simulates a basic surveillance system. It is capable of:
 
-System Information Collection: Gathers hostname, IP address, processor info, and system specs
+- Logging keyboard inputs
+- Monitoring clipboard activity
+- Taking screenshots
+- Recording short microphone audio clips
+- Gathering system information
+- Packaging and sending all collected data via email (using [Mailtrap](https://mailtrap.io/))
 
-Screenshot Capture: Takes periodic screenshots of the user's desktop
+This tool is ideal for learning about:
+- Ethical hacking
+- Penetration testing
+- System monitoring
+- Python scripting with system-level interaction
 
-Audio Recording: Records microphone input at specified intervals
+---
 
-Email Reporting: Sends collected data to a configured email address
+## 🧰 Features
 
-Stealth Operation: Includes self-removal capabilities
+| Feature               | Description                                      |
+|----------------------|--------------------------------------------------|
+| 🧠 Keystroke Logging  | Captures all key presses                         |
+| 📋 Clipboard Logger   | Logs copied clipboard text every 5 seconds       |
+| 📷 Screenshot Capture | Takes a screenshot at each report interval      |
+| 🎤 Microphone Audio   | Records 3-second audio using system microphone   |
+| 🖥️ System Info        | Logs system details (CPU, OS, IP, etc.)         |
+| 📩 Email Reports      | Sends logs and media via email using SMTP        |
+| 🧼 Auto Cleanup       | Deletes files after sending to prevent buildup   |
 
-Installation
-Clone the repository:
+---
 
-bash
-git clone https://github.com/yourusername/keylogger.git
-cd keylogger
-Install dependencies:
+## ✉️ Email Setup Using Mailtrap (Safe for Testing)
 
-bash
-pip install -r requirements.txt
-Or install manually:
+Mailtrap lets you **test emails safely** without sending them to a real recipient. Use it to test this tool without risk.
 
-bash
-pip install pyscreenshot sounddevice pynput
-Configuration
-Before running the keylogger, you need to configure your email settings:
+### ✅ Step-by-Step Setup
 
-Open the script in a text editor
+### 🥇 Step 1: Create a Mailtrap Account
 
-Modify these lines with your email credentials:
+1. Visit [https://mailtrap.io/](https://mailtrap.io/)
+2. Sign up for a free account
 
-python
-EMAIL_ADDRESS = "your_email@example.com"
-EMAIL_PASSWORD = "your_email_password"
-SEND_REPORT_EVERY = 10  # Time interval in seconds
-For Mailtrap users (default configuration), use:
+---
 
-python
-SMTP_SERVER = "smtp.mailtrap.io"
-SMTP_PORT = 2525
-Usage
-Run the keylogger with Python:
+### 🥈 Step 2: Create an Inbox & Copy SMTP Credentials
 
-bash
-python keylogger.py
-The program will:
+1. Go to your **Mailtrap dashboard**
+2. Click **"Email Testing" > Inbox > SMTP Settings**
+3. Choose **"Integrations > Python (smtplib)"**
+4. Copy the following:
+   - SMTP Host: `smtp.mailtrap.io`
+   - Port: `2525`
+   - Username
+   - Password
 
-Start capturing keyboard and mouse inputs
+---
 
-Collect system information
+### 🥉 Step 3: Paste Credentials into the Code
 
-Take periodic screenshots and audio recordings
+In `keylogger.py`, modify these lines:
 
-Send reports via email at the specified interval
-
-Security and Legal Considerations
-
-⚠️ Important Notice:
-
-This software is for educational and legitimate monitoring purposes only
-
-Unauthorized monitoring of computers may violate privacy laws
-
-Always obtain proper consent before using this tool
-
-The developer is not responsible for misuse of this software
-
-Technical Details
-Components
-Keyboard Listener: Uses pynput to capture keystrokes
-
-Mouse Listener: Tracks mouse movements and clicks
-
-Screenshot: Uses pyscreenshot to capture desktop images
-
-Audio Recording: Uses sounddevice to record microphone input
-
-Email Reporting: Uses smtplib for sending collected data
+```python
+EMAIL_ADDRESS = "your_mailtrap_username"
+EMAIL_PASSWORD = "your_mailtrap_password"
